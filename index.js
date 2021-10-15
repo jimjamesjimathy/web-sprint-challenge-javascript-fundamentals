@@ -97,12 +97,10 @@ const zooAnimals = [
   */
 
   function USApop(array){
-    const totalAnimalPop = array.reduce(function(acc, item){
-      return acc + item.population;
-    },0);
+    const totalAnimalPop = array.reduce((acc, item) => acc + item.population ,0);
     return totalAnimalPop;
   }
-  console.log(USApop(zooAnimals));
+
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
@@ -112,8 +110,8 @@ const zooAnimals = [
     * The consume function should return the invocation of cb, passing a and b into cb as arguments
   */
 
-  function consume(/*Your Code Here */){
-    /*Your Code Here */
+  function consume(a, b, cb){
+    return cb(a, b);
   }
  
   
