@@ -17,7 +17,14 @@ myFunction();
 
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
+ /*
 
+    This is an example of a closure:
+
+   The function "nestedFunction" is able to access the variable "internal" because it is in the lexical scope of the function "myFunction"
+
+
+  */
 
 
 
@@ -29,12 +36,12 @@ myFunction();
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
 function summation(num) {
-  let finalNumber = 0;
-  for(let i=0; i<=num; i++){
-    finalNumber+=i;
-  }
-  return finalNumber;
+  let sum = 0;
+  for(let i=0; i<=num; i++){sum+= i}
+  return sum;
 }
+// console.log(summation(69));
+
 
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
@@ -60,12 +67,11 @@ const zooAnimals = [
   */
 
   function animalNames(array){
-    const displayNames = array.map(function(item){
-      return `name: ${item.animal_name}, scientific: ${item.scientific_name}`
-    })
-    return displayNames;
+    const finalArray = [];
+    array.forEach(item => finalArray.push(`name: ${item.animal_name}, scientific: ${item.scientific_name}`));
+    return finalArray;
   }
-  
+  // console.log(animalNames(zooAnimals));
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
@@ -77,8 +83,8 @@ const zooAnimals = [
     const lowerCaseAnimals = array.map(item => item.animal_name.toLowerCase());
     return lowerCaseAnimals;
   }
-  
-  
+  // console.log(lowerCaseNames(zooAnimals));
+
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
   Using lowPopulationAnimals use .filter() to create a new array of objects which contains only the animals with a population of less than 5.
@@ -88,7 +94,7 @@ const zooAnimals = [
     const lowCount = array.filter(item => item.population < 5);
     return lowCount;
   }
-  
+  // console.log(lowPopulationAnimals(zooAnimals));
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
   The zoo needs to know their total animal population across the United States. 
@@ -100,7 +106,7 @@ const zooAnimals = [
     const totalAnimalPop = array.reduce((acc, item) => acc + item.population ,0);
     return totalAnimalPop;
   }
-
+      // console.log(USApop(zooAnimals));
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
@@ -113,7 +119,7 @@ const zooAnimals = [
   function consume(a, b, cb){
     return cb(a, b);
   }
- 
+
   
   /* 🦁🦁🦁 Step 2: Create several functions to callback with consume(); 🦁🦁🦁 */
  // 🦁🦁🦁 Use add to return the sum of two numbers 🦁🦁🦁
@@ -135,13 +141,13 @@ function multiply(number1, number2){
 function greeting(firstName, lastName){
    return `Hello ${firstName} ${lastName}, nice to meet you!`
   }
-  
+  // console.log(greeting('James', 'Kirkwood'))
   
   // 🦁🦁🦁 Step 3: Check your work by un-commenting the following calls to consume(): 🦁🦁🦁 
   // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-  console.log(consume(2, 2, add)); // 4
-  console.log(consume(10, 16, multiply)); // 160
-  console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
+  // console.log(consume(2, 2, add)); // 4
+  // console.log(consume(10, 16, multiply)); // 160
+  // console.log(consume("Mary", "Poppins", greeting)); // Hello Mary Poppins, nice to meet you!
 
 // 🐴🐴🐴 Topic 3: Prototypes 🐴🐴🐴 //
 //🐴🐴🐴 Task: You are to build a cuboid maker that can return values for a cuboid's volume or surface area. Cuboids are similar to cubes but do not have even sides. Follow the steps in order to accomplish this challenge. 🐴🐴🐴
@@ -159,7 +165,7 @@ function CuboidMaker(attributes){
   Create a method called volume using CuboidMaker's prototype that returns the volume of a given cuboid's length, width, and height
   Formula for cuboid volume: length * width * height   */
 
-  CuboidMaker.prototype.volume = function(attributes){
+  CuboidMaker.prototype.volume = function(){
     return this.length * this.width * this.height;
   }
 
@@ -169,7 +175,7 @@ function CuboidMaker(attributes){
   Create another method called surfaceArea using CuboidMaker's prototype that returns the surface area of a given cuboid's length, width, and height. 
   Formula for cuboid surface area of a cube: 
   2 * (length * width + length * height + width * height)  */
-  CuboidMaker.prototype.surfaceArea = function(attributes){
+  CuboidMaker.prototype.surfaceArea = function(){
     return 2 * (this.length * this.width + this.length * this.height + this.width * this.height)
   }
 
@@ -190,8 +196,8 @@ const cuboid = new CuboidMaker({
 
 // 🐴🐴🐴 Test your volume and surfaceArea methods by uncommenting the logs below: 🐴🐴🐴
 // ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️ ⬇️
-console.log(cuboid.volume()); // 100
-console.log(cuboid.surfaceArea()); // 130
+// console.log(cuboid.volume()); // 100
+// console.log(cuboid.surfaceArea()); // 130
  
 
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
@@ -218,8 +224,8 @@ const cuboidTwo = new CuboidMakerTwo({
 
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-console.log(cuboidTwo.volume()); // 100
-console.log(cuboidTwo.surfaceArea()); // 130
+// console.log(cuboidTwo.volume()); // 100
+// console.log(cuboidTwo.surfaceArea()); // 130
 
 
 

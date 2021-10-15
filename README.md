@@ -25,14 +25,92 @@ Demonstrate your understanding of this week's concepts by answering the followin
 Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read.
 
 1. Explain the differences between `.map`, `.reduce` and `.filter` and describe a use case for each. 
+        ---  Differences:
+                .map();
+                        .map(); is used for creating a new array from an already existing array, and applying a function to each one of the elements of the first array.
+                                In the callback, only the array "element" is required, though it can take to more arguments which are index and the array itself.
+
+                                Use case:
+                                         Say you have an array of ingredients; you want to take those ingredients and make a meal out of them in a new array.
+                                         You could use .map() to take the ingredients, use the callback function (that you already created) and make a new array of your choosing.
+                                                        Bon Appétit!
+                                                                       " map(['Corn', 'Beef', 'Chicken'], cook)
+                                                                         => ['Popcorn', 'Steak', 'Eggs'] " 
+
+
+                .filter();
+                        .filter(); takes each element in an array and applies a conditional statement to check if it is true, or false. 
+                                   If the conditional returns true, the element gets pushed to the output array.
+                                   If the conditional return false, the element does not get pushed.           
+                                                 The syntax for filter is similar to .map();, except the callback function must return true to keep the element, or false otherwise.
+                                                 In the callback, only the element is required.   
+
+                                Use case:
+                                         We'll stick with our current cooking theme. You're now getting orders but someone at the table is vegetarian!
+                                         You can use .filter(); to go through and filter out all of the foods that contain meat.
+
+                                                        Now no one has any beef with anyone!
+
+                                                                       " filter(['PopCorn', 'Steak', 'Eggs], isVegetarian)
+                                                                            =>  ['Popcorn', 'Eggs'] 
+
+
+                .reduce();
+                        .reduce(); reduces an array of values down to just one value. To get the output value, it runs a 'reducer' function on each element of the array.
+                        The callback argument passed in, is a function that well be called on once for every item in the array. 
+                        .reduce(); takes four arguments, but most cases only use the first two. 
+                        These four arguments are: accumulator, currentValue, index, array; and an optional initialValue. If provided, it will be used as the initial accumulator value in the first call to the callback function.
+
+                                Use case:
+                                        After all that great eating, there is something that is inevitable, .reduce();
+                                                                Taking it all down to just one value.
+
+
+                                                                        "reduce(['Popcore', 'Eggs'], eat)
+                                                                                => 'waste'
+
+
+
+
 
 2. Explain the difference between a callback and a higher order function.
+        --- Higher Order Function:
+                                  A higher-order function, is a function that takes another function(s) as an argument(s) or, returns a function to its callers.
+        --- Callback Function:
+                                  A callback function is a function that is passed to another function with the expectation that the other function will call it.
+
 
 3. Explain what a closure is.
+        --- Closure:
+                    Closure, is when a function inside the lexical scope of another function reaches into the outerfunction to access data.
+
 
 4. Describe the four principles of the 'this' keyword.
+        #1
+                Window Binding:
+                                When in the global scope, the value of 'this' is the window / console Object.
+
+        #2
+                Implicit Binding:
+                                Whenever a preceding dot calls a function, the object before the dot is 'this'.
+
+        #3
+                New Binding: 
+                                Whenever using a constructor function, 'this' refers to the specific instance of the object that is created and returned by the constructor function.
+
+
+        #4      
+                Explicit Binding:
+                                Whenever we use the .call(); or, .apply(); this is explicitly defined.
+
+
+
 
 5. Why do we need super() in an extended class?
+        --- .super();
+                        We need .super(); as it allows us to access and call functions on an object's parent.
+
+                        
 
 You are expected to be able to answer questions in these areas. Your responses contribute to your Sprint Challenge grade. 
 
